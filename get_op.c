@@ -18,6 +18,8 @@ void proc_line(char *buffer, unsigned int line_number)
 		if (f == push)
 		{
 			token = strtok_r(NULL, " ", &save_point);
+			if (token == NULL || check_num(token) == 0)
+				push(&stack, line_number);
 			real_push(&stack, line_number, token);
 		}
 		else
