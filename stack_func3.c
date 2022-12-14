@@ -1,4 +1,4 @@
-#include "monty."
+#include "monty.h"
 
 /**
  * mul - Takes the top two elements of the stack and multiple them. Result is
