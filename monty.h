@@ -46,5 +46,10 @@ extern int misc[];
 
 void (*get_op(char *tok))(stack_t **stack, unsigned int line_number);
 void proc_line(char *buffer, unsigned int line_number, stack_t **stack);
-
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
 #endif /* _MONTY_H_ */
