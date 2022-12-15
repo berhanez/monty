@@ -1,4 +1,4 @@
-push 3
+push 
 # comments
 # push 2
 pall
