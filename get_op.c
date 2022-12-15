@@ -1,10 +1,20 @@
 #include "monty.h"
 
-void proc_line(char *buffer, unsigned int line_number)
+/**
+ * proc_line - Parses the line for an opcode. If one is found, check if it is
+ * a valid opcode, if so perform the operation.
+ * @buffer: The line to process.
+ * @line_number: The line number of the current line in the file that is being
+ * processed.
+ * @stack: Double pointer to the beginning of the stack.
+ * Return: Void.
+ */
+void proc_line(char *buffer, unsigned int line_number, stack_t **stack)
 {
 	char *token;
 	char *save_point;
 	void (*f)(stack_t **stack, unsigned int line_number);
+
 	token = strtok_r(buffer, " ", &save_point);
 	if (token != NULL)
 	{
@@ -19,12 +29,12 @@ void proc_line(char *buffer, unsigned int line_number)
 		{
 			token = strtok_r(NULL, " ", &save_point);
 			if (token == NULL || check_num(token) == 0)
-				push(&stack, line_number);
-			real_push(&stack, token);
+				push(stack, line_number);
+			real_push(stack, token);
 		}
 		else
 		{
-			f(&stack, line_number);
+			f(stack, line_number);		
 		}
 	}
 }
@@ -51,9 +61,12 @@ void (*get_op(char *tok))(stack_t **stack, unsigned int line_number)
 		{ "pstr", pstr},
 		{ "pchar", pchar },
 		{ "sub", sub },
+		{ "stack", stack_set },
+		{ "queue", queue_set },
 		{ NULL, NULL }
 	};
 	int i;
+
 	for (i = 0; ops[i].opcode != NULL; i++)
 	{
 		if (strcmp(ops[i].opcode, tok) == 0)

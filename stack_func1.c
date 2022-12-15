@@ -21,7 +21,8 @@ void push(stack_t **stack, unsigned int line_number)
  */
 void real_push(stack_t **stack, char *n)
 {
-	stack_t *new;
+	stack_t *end;
+
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
@@ -30,10 +31,29 @@ void real_push(stack_t **stack, char *n)
 	}
 	new->n = atoi(n);
 	new->prev = NULL;
-	new->next = (*stack);
-	if (*stack)
-		(*stack)->prev = new;
-	*stack = new;
+	new->next = NULL;
+	if (mode == STAK_MODE)
+	{
+		new->next = (*stack);
+		if (*stack)
+			(*stack)->prev = new;
+		*stack = new;
+	}
+	else
+	{
+		if (*stack == NULL)
+		{
+			*stack = new;
+		}
+		else
+		{
+			end = *stack;
+			while (end->next != NULL)
+				end = end->next;
+			end->next = new;
+			new->prev = end;
+		}
+	}
 }
 /**
  * pall - prints all elements in the stack
