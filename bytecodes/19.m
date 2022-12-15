@@ -1,4 +1,4 @@
-push 1
+push 
 push 2
 push 10
 push 3
