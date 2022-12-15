@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * proc_line - Parses the line for an opcode. If one is found, check if it is
  * a valid opcode, if so perform the operation.
@@ -9,8 +8,7 @@
  * @stack: Double pointer to the beginning of the stack.
  * Return: Void.
  */
-void proc_line(char *buffer, unsigned int line_number, stack_t **stack, FILE
-*monty_file)
+void proc_line(char *buffer, unsigned int line_number, stack_t **stack)
 {
 	char *token;
 	char *save_point;
@@ -44,30 +42,29 @@ void proc_line(char *buffer, unsigned int line_number, stack_t **stack, FILE
 }
 /**
  * get_op - gets the operation from token
- * @token: the operation
+ * @tok: the operation
  * Return: a function pointer
  */
 void (*get_op(char *tok))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t ops[] = {
+		{ "rotr", rotr},
+		{ "rotl", rotl},
+		{ "pchar", pchar},
+		{ "pstr", pstr},
 		{ "push", push },
 		{ "pall", pall },
 		{ "pint", pint },
 		{ "pop", pop },
 		{ "swap", swap },
 		{ "add", add },
+		{ "sub", sub },
 		{ "mul", mul },
 		{ "div", _div },
 		{ "mod", mod },
 		{ "nop", nop },
-		{ "rotl", rotl},
-		{ "pchar", pchar},
-		{ "pstr", pstr},
-		{ "pchar", pchar },
-		{ "sub", sub },
 		{ "stack", stack_set },
 		{ "queue", queue_set },
-		{ "rotr", rotr},
 		{ NULL, NULL }
 	};
 	int i;
@@ -79,3 +76,4 @@ void (*get_op(char *tok))(stack_t **stack, unsigned int line_number)
 	}
 	return (NULL);
 }
+

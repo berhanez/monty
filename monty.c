@@ -23,17 +23,19 @@ int main(int argc, char **argv)
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
+
 	monty_file = fopen(argv[1], "r");
 	if (monty_file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
+
 	len = getline(&buffer, &n, monty_file);
 	while (len != -1)
 	{
 		line_number++;
-		proc_line(buffer, line_number, &stack, monty_file);
+		proc_line(buffer, line_number, &stack);
 		free(buffer);
 		buffer = NULL;
 		if (misc[ERROR_IDX] != 0)

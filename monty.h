@@ -1,6 +1,5 @@
 #ifndef _MONTY_H_
 #define _MONTY_H_
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,6 +18,7 @@ typedef struct stack_s
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -36,30 +36,31 @@ extern int misc[];
 #define N_IDX 0
 #define MODE_IDX 1
 #define ERROR_IDX 2
+
 #define STAK_MODE 1
 #define QUEU_MODE 0
 
 void (*get_op(char *tok))(stack_t **stack, unsigned int line_number);
+void proc_line(char *buffer, unsigned int line_number, stack_t **stack);
+
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void _div(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
-void sub(stack_t **stack, unsigned int line_number);
-void proc_line(char *buffer, unsigned int line_number, stack_t **stack, FILE
-*monty_file);
-void free_stack(stack_t *stack);
 void rotr(stack_t **stack, unsigned int line_number);
 void stack_set(stack_t **stack, unsigned int line_number);
 void queue_set(stack_t **stack, unsigned int line_number);
-
 char check_num(char *num);
+
 #endif /* _MONTY_H_ */

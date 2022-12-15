@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * push - Pushes a node to a datastructure. FIFO for queue mode, LIFO for stack
  * mode.
@@ -19,6 +18,7 @@ void push(stack_t **stack, unsigned int line_number)
 		misc[ERROR_IDX] = 1;
 		return;
 	}
+
 	new->n = misc[N_IDX];
 	new->prev = NULL;
 	new->next = NULL;
@@ -61,7 +61,6 @@ void pall(stack_t **stack, unsigned int line_number)
 		head = head->next;
 	}
 }
-
 /**
  * pint - prints the top element in the stack
  * @stack: a pointer to a pointer to the stack
@@ -71,11 +70,11 @@ void pint(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL || *stack == NULL)
 	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n");
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		misc[ERROR_IDX] = 1;
 		return;
 	}
-	printf("%d\n", *stack->n);
+	printf("%d\n", (*stack)->n);
 }
 /**
  * pop - pops the top element of a stack
@@ -88,7 +87,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL)
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n");
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		misc[ERROR_IDX] = 1;
 		return;
 	}

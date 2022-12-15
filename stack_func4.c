@@ -18,7 +18,6 @@ void rotl(stack_t **stack, unsigned int line_number)
 	last_ptr = *stack;
 	head = *stack;
 	next = head->next;
-
 	while (last_ptr->next != NULL)
 		last_ptr = last_ptr->next;
 	next->prev = NULL;
@@ -27,6 +26,7 @@ void rotl(stack_t **stack, unsigned int line_number)
 	head->prev = last_ptr;
 	*stack = next;
 }
+
 /**
  * rotr - Rotates the stack to the bottom, the last element becomes the top
  * @stack: Double pointer to the top of the stack.
@@ -38,6 +38,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 	stack_t *last_ptr;
 	stack_t *head;
 	(void)line_number;
+
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return;
 	last_ptr = *stack;
@@ -51,9 +52,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 	*stack = last_ptr;
 }
 /**
- * stack_set - Sets the format of the data to a stack. This is the default
- * behavior of the program. Anything pushed after the stack opcode will follow
- * the LIFO style.
+ * stack_set - Sets the format of the data to a stack.
  * @stack: Double pointer to the top of the stack.
  * @line_number: Line number of where the stack opcode is in the file.
  * Return: Void.
@@ -65,9 +64,9 @@ void stack_set(stack_t **stack, unsigned int line_number)
 
 	misc[MODE_IDX] = STAK_MODE;
 }
+
 /**
- * queue_set - Sets the format of the data to a queue. Anything pushed after
- * the queue opcode will follow the FIFO style.
+ * queue_set - Sets the format of the data to a queue.
  * @stack: Double pointer to the top of the stack.
  * @line_number: Line number of where the stack opcode is in the file.
  * Return: Void.
