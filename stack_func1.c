@@ -19,7 +19,7 @@ void push(stack_t **stack, unsigned int line_number)
  * @stack: a pointer to a pointer to the stack
  * @line_number: holds the line the code is run
  */
-void real_push(stack_t **stack, unsigned int line_number, char *n)
+void real_push(stack_t **stack, char *n)
 {
 	stack_t *new;
 	new = malloc(sizeof(stack_t));
@@ -43,6 +43,8 @@ void real_push(stack_t **stack, unsigned int line_number, char *n)
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *head = *stack;
+	(void) line_number;
+
 	while (head != NULL)
 	{
 		printf("%d\n", head->n);

@@ -32,7 +32,7 @@ extern stack_t *stack;
 
 void (*get_op(char *tok))(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
-void real_push(stack_t **stack, unsigned int line_number, char *n);
+void real_push(stack_t **stack, char *n);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
@@ -45,6 +45,7 @@ void _div(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
+void proc_line(char *buffer, unsigned int line_number);
 
 char check_num(char *num);
 #endif /* _MONTY_H_ */
