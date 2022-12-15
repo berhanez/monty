@@ -52,7 +52,7 @@ void mod(stack_t **stack, unsigned int line_number)
  * prints the char equivalent.
  * If an error is encountered, prints a message and exits with EXIT_FAILURE.
  * @stack: Double pointer to the top of the stack
- * @line_number: Line number of where the mod opcode is in the file.
+ * @line_number: Line number of where the pchar opcode is in the file.
  * Return: Void.
  */
 void pchar(stack_t **stack, unsigned int line_number)
@@ -69,4 +69,30 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 
 	printf("%c\n", (*stack)->n);
+}
+/**
+ * pstr - Prints the integer values of a stack as ascii characters.
+ * @stack: Double pointer to the top of the stack
+ * @line_number: Line number of where the pstr opcode is in the file.
+ */
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	(void) line_number;
+	stack_t *cur;
+	int asc;
+
+	if (stack != NULL)
+	{
+		cur = *stack;
+		while (cur != NULL)
+		{
+			asc = cur->n;
+			if (asc != 0 && asc >= 0 && asc <= 127)
+				putchar(asc);
+			else
+				break;
+			cur = cur->next;
+		}
+	}
+	putchar('\n');
 }
