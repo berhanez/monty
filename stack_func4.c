@@ -63,7 +63,7 @@ void stack_set(stack_t **stack, unsigned int line_number)
 	(void) stack;
 	(void) line_number;
 
-	mode = STAK_MODE;
+	misc[MODE_IDX] = STAK_MODE;
 }
 /**
  * queue_set - Sets the format of the data to a queue. Anything pushed after
@@ -77,5 +77,5 @@ void queue_set(stack_t **stack, unsigned int line_number)
 	(void) stack;
 	(void) line_number;
 
-	mode = QUEU_MODE;
+	misc[MODE_IDX] = QUEU_MODE;
 }

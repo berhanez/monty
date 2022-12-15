@@ -1,6 +1,7 @@
 #include "monty.h"
 
-char mode = STAK_MODE;
+void free_stack(stack_t *stack);
+int misc[] = {0, 0, 0};
 /**
  * main - Process Monty byte codes from a file passed in as an argument.
  * @argc: The number of arguments passed to the program.
@@ -16,6 +17,7 @@ int main(int argc, char **argv)
 	unsigned int line_number = 0;
 	stack_t *stack = NULL;
 
+	misc[MODE_IDX] = STAK_MODE;
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -36,6 +38,12 @@ int main(int argc, char **argv)
 		proc_line(buffer, line_number, &stack, monty_file);
 		free(buffer);
 		buffer = NULL;
+		if (misc[ERROR_IDX] != 0)
+		{
+			free_stack(stack);
+			fclose(monty_file);
+			exit(EXIT_FAILURE);
+		}
 		len = getline(&buffer, &n, monty_file);
 	}
 	free(buffer);
@@ -51,6 +59,7 @@ int main(int argc, char **argv)
 void free_stack(stack_t *stack)
 {
 	stack_t *next;
+
 	while (stack != NULL)
 	{
 		next = stack->next;

@@ -31,8 +31,11 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern char mode;
+extern int misc[];
 
+#define N_IDX 0
+#define MODE_IDX 1
+#define ERROR_IDX 2
 #define STAK_MODE 1
 #define QUEU_MODE 0
 
@@ -57,7 +60,6 @@ void free_stack(stack_t *stack);
 void rotr(stack_t **stack, unsigned int line_number);
 void stack_set(stack_t **stack, unsigned int line_number);
 void queue_set(stack_t **stack, unsigned int line_number);
-void real_push(stack_t **stack, char *n);
 
 char check_num(char *num);
 #endif /* _MONTY_H_ */
