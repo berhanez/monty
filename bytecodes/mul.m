@@ -1,4 +1,4 @@
-push 2
+push 
 push 40
 push 3
 mul
