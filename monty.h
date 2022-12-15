@@ -31,14 +31,16 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern char mode;
+extern int misc[];
 
+#define N_IDX 0
+#define MODE_IDX 1
+#define ERROR_IDX 2
 #define STAK_MODE 1
 #define QUEU_MODE 0
 
 void (*get_op(char *tok))(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int line_number);
-void real_push(stack_t **stack, char *n);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
