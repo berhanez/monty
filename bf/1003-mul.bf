@@ -14,4 +14,4 @@
 [->-[>+>>]>[+[-<+>]>+>>]<<<<<] end result: 3rd cell is 0  ~ 4th cell is 10 minus product % 10 ~ 5th cell is product % 10 ~ 6th cell is product / 10
 >>>[>+++++ +[<++++ ++++>-]<.[-]] if 6th cell is not 0 then use 7th cell to increase it to ascii and print then decrement to 0 to exit
 <[>>+++++ +[<<++++ ++++>>-]<<.>>] move to 5th cell ~ if it is not 0 then use 7th cell to increase it to ascii and print ~ move to 7th cell to exit
-+++++ +++++ . print newline
++++++ +++++ . print newlin
