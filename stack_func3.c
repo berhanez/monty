@@ -62,13 +62,11 @@ void pchar(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (isascii((*stack)->n != 0))
+	if ((*stack)->n < 0 || (*stack)->n > 127)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
-		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-
 	printf("%c\n", (*stack)->n);
 }
 /**
@@ -87,8 +85,8 @@ void pstr(stack_t **stack, unsigned int line_number)
 		cur = *stack;
 		while (cur != NULL)
 		{
-			asc = cu8r->n;
-			if (asc != 0 && isascii(asc) != 0)
+			asc = cur->n;
+			if (ascii != 0 && ascii >= 0 && ascii <= 127)
 				putchar(asc);
 			else
 				break;
