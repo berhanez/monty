@@ -14,4 +14,4 @@
  	]
 <<<-] Loop until value in i = 0 reaches 0
 
->>>++++++[<++++ ++++>-]<. Set i = 3 to 6 as counter for loop in boost value in i = 2 to a ascii valu
+>>>++++++[<++++ ++++>-]<. Set i = 3 to 6 as counter for loop in boost value in i = 2 to a ascii value
