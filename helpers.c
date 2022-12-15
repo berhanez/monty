@@ -1,4 +1,4 @@
-#include "monty."
+#include "monty.h"
 /**
  * check_num - Checks if a string is a number.
  * @num: Pointer to the supposed number string.
