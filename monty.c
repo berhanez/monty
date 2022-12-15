@@ -33,8 +33,6 @@ int main(int argc, char **argv)
 	while (len != -1)
 	{
 		line_number++;
-		if (buffer[len - 1] == '\n')
-			buffer[len - 1] = '\0';
 		proc_line(buffer, line_number, &stack, monty_file);
 		free(buffer);
 		buffer = NULL;

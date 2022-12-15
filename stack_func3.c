@@ -66,7 +66,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		misc[ERROR_IDX] = 1;
 		return;
 	}
-	if (isascii((*stack)->n != 0))
+	if ((*stack)->n < 0 || (*stack)->n > 127)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 		misc[ERROR_IDX] = 1;
@@ -91,7 +91,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 		while (cur != NULL)
 		{
 			asc = cur->n;
-			if (asc != 0 && isascii(asc) != 0)
+			if (asc != 0 && asc > 0 && asc <= 127)
 				putchar(asc);
 			else
 				break;
