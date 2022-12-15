@@ -63,6 +63,7 @@ void (*get_op(char *tok))(stack_t **stack, unsigned int line_number)
 		{ "sub", sub },
 		{ "stack", stack_set },
 		{ "queue", queue_set },
+		{ "rotr", rotr},
 		{ NULL, NULL }
 	};
 	int i;

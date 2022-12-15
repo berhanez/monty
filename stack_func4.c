@@ -6,7 +6,7 @@
  * @line_number: Line number of where the mul opcode is in the file.
  * Return: Void.
  */
-void rotl(stack_t **stack, unsigned int line_number)
+void rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *last_ptr;
 	stack_t *head;
