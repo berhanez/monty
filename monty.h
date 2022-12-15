@@ -46,6 +46,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void proc_line(char *buffer, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
 
 char check_num(char *num);
 #endif /* _MONTY_H_ */

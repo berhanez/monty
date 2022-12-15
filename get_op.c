@@ -50,6 +50,7 @@ void (*get_op(char *tok))(stack_t **stack, unsigned int line_number)
 		{ "pchar", pchar},
 		{ "pstr", pstr},
 		{ "pchar", pchar },
+		{ "sub", sub },
 		{ NULL, NULL }
 	};
 	int i;
